@@ -37,20 +37,32 @@ with open(csvpath) as csvfile:
     print("------------------")
     print(f"Total Months: {TotalMonths}")
     print(f"Net Profit: ${NetProfit}")
-    print(f"ProfitChanges {ProfitChanges}")
 
-    # for x in ProfitChanges:
-    #     if AveChange == 0:
-    #         AveChange = x
-    #         continue
-
-    #     AveChange = (AveChange + abs(x)) / 2
-
-    #     # next(x)
-
+    # print(f"ProfitChanges {ProfitChanges}")
     AveChange = sum(ProfitChanges) / len(ProfitChanges)
-    print(f"AveChange = {sum(ProfitChanges)} / {len(ProfitChanges)}")
+    # print(f"AveChange = {sum(ProfitChanges)} / {len(ProfitChanges)}")
     print(f"Average Change: {AveChange}")
 
     print(f"Greatest Increase in Profits: {MaxProfit_Date} (${MaxProfit})")
     print(f"Greatest Decrease in Profits: {MinProfit_Date} (${MinProfit})")
+
+# Specify the file to write to
+output_path = os.path.join('analysis', 'PyBank.out')
+
+# with open(output_path, 'w') as csvfile:
+
+#     # Initialize csv.writer
+#     csvwriter = csv.writer(csvfile, delimiter=' \0')
+
+#     # Write the first row (column headers)
+#     csvwriter.writerow("Financial Analysis")
+#     csvwriter.writerow("------------------")
+#     # csvwriter.writerow()
+with open(output_path, 'w') as text:
+    text.write("Financial Analysis\n")
+    text.write("------------------\n")
+    text.write(f"Total Months: {TotalMonths}\n")
+    text.write(f"Net Profit: ${NetProfit}\n")
+    text.write(f"Greatest Increase in Profits: {MaxProfit_Date} (${MaxProfit})\n")
+    text.write(f"Greatest Decrease in Profits: {MinProfit_Date} (${MinProfit})\n")
+
