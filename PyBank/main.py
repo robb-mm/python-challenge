@@ -49,20 +49,12 @@ with open(csvpath) as csvfile:
 # Specify the file to write to
 output_path = os.path.join('analysis', 'PyBank.out')
 
-# with open(output_path, 'w') as csvfile:
-
-#     # Initialize csv.writer
-#     csvwriter = csv.writer(csvfile, delimiter=' \0')
-
-#     # Write the first row (column headers)
-#     csvwriter.writerow("Financial Analysis")
-#     csvwriter.writerow("------------------")
-#     # csvwriter.writerow()
 with open(output_path, 'w') as text:
     text.write("Financial Analysis\n")
     text.write("------------------\n")
     text.write(f"Total Months: {TotalMonths}\n")
     text.write(f"Net Profit: ${NetProfit}\n")
+    text.write(f"Average Change: \n")
     text.write(f"Greatest Increase in Profits: {MaxProfit_Date} (${MaxProfit})\n")
     text.write(f"Greatest Decrease in Profits: {MinProfit_Date} (${MinProfit})\n")
 
