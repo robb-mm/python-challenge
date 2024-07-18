@@ -34,3 +34,21 @@ with open(csvpath) as csvfile:
     print("-----------------------------------------")
     print(f"Winner: {WinnerName}")
     print("-----------------------------------------")
+
+# Specify the file to write to
+output_file = os.path.join('analysis', 'PyPoll.out')
+
+with open(output_file, 'w') as text:
+    text.write("Election Results\n")
+    text.write("-----------------------------------------\n")
+    text.write(f"Total Votes: {TotalVotes}\n")
+    text.write("-----------------------------------------\n")
+
+    for name in candidates:
+        PercentWon = round(candidates[name] / TotalVotes * 100, 3)
+        TotalWon = candidates[name]
+        text.write(f"{name}: {PercentWon}% ({TotalWon})\n")
+
+    text.write("\n-----------------------------------------\n")
+    text.write(f"Winner: {WinnerName}\n")
+    text.write("-----------------------------------------\n")
