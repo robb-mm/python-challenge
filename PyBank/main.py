@@ -6,7 +6,7 @@ MinProfit = 0; MaxProfit = 0
 PrevProfit = 0; ProfitChange = 0; AveChange = 0
 ProfitChanges = []
 
-csvpath = os.path.join('Resources', 'budget_data_temp.csv')
+csvpath = os.path.join('Resources', 'budget_data.csv')
 with open(csvpath) as csvfile:
     csvreader = csv.reader(csvfile)
 
@@ -39,7 +39,7 @@ with open(csvpath) as csvfile:
     print(f"Net Profit: ${NetProfit}")
 
     # print(f"ProfitChanges {ProfitChanges}")
-    AveChange = sum(ProfitChanges) / len(ProfitChanges)
+    AveChange = round(sum(ProfitChanges) / len(ProfitChanges), 2)
     # print(f"AveChange = {sum(ProfitChanges)} / {len(ProfitChanges)}")
     print(f"Average Change: {AveChange}")
 
